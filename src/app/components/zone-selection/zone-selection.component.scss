@@ -1,0 +1,89 @@
+.home {
+  padding-bottom: 56px;
+  background:
+    radial-gradient(420px 260px at 0% 85%, rgba(34, 224, 107, 0.16), transparent 70%),
+    radial-gradient(420px 260px at 100% 85%, rgba(34, 224, 107, 0.16), transparent 70%),
+    radial-gradient(900px 200px at 50% 130%, rgba(34, 224, 107, 0.12), transparent 70%),
+    linear-gradient(180deg, rgba(10, 20, 40, 0.92), rgba(6, 12, 24, 0.96));
+}
+
+.hero {
+  text-align: center;
+  margin: -8px 0 28px;
+
+  h1 { margin: 0; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; letter-spacing: -0.01em; }
+  p { margin: 6px 0 0; color: var(--muted); font-size: clamp(0.95rem, 2vw, 1.2rem); }
+}
+
+.zones {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 3vw, 40px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.zone-card {
+  --c: var(--blue);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 20px 14px;
+  border: 1px solid color-mix(in srgb, var(--c) 70%, transparent);
+  border-radius: 18px;
+  color: var(--c);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 10%, #08101f), #070d1a);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--c) 18%, transparent), 0 14px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &[data-accent='green'] { --c: var(--green); }
+  &[data-accent='orange'] { --c: var(--orange); }
+
+  &:hover, &:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 0 34px color-mix(in srgb, var(--c) 35%, transparent), 0 18px 36px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 6px 12px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+}
+
+.zone-name { flex: 1; text-align: center; font-size: 1.35rem; font-weight: 500; padding-left: 34px; }
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(60, 80, 130, 0.55);
+}
+
+@media (max-width: 900px) {
+  .zones { grid-template-columns: 1fr; max-width: 460px; }
+}
+
+.state-msg {
+  margin: 0 0 24px;
+  text-align: center;
+  color: var(--muted);
+
+  p { margin: 0 0 10px; }
+}
+
+.retry {
+  padding: 8px 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+
+  &:hover { background: rgba(255, 255, 255, 0.12); }
+}

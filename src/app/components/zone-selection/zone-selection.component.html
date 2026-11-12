@@ -1,0 +1,31 @@
+<section class="frame home">
+  <app-header />
+
+  <div class="hero">
+    <h1>Select a Zone</h1>
+    <p>Choose a zone to view its sensors and sprinkler</p>
+  </div>
+
+  @if (status() === 'loading') {
+    <p class="state-msg" role="status">Loading zones…</p>
+  } @else if (status() === 'error') {
+    <div class="state-msg" role="alert">
+      <p>{{ error() }}</p>
+      <button type="button" class="retry" (click)="retry()">Try again</button>
+    </div>
+  }
+
+  <nav class="zones" aria-label="Zones">
+    @for (z of zones(); track z.id) {
+      <a class="zone-card" [attr.data-accent]="z.accent" [routerLink]="['/zone', z.id]">
+        <app-greenhouse-art />
+        <span class="label">
+          <span class="zone-name">{{ z.name }}</span>
+          <span class="arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </span>
+      </a>
+    }
+  </nav>
+</section>

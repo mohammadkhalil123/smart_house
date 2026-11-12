@@ -1,0 +1,50 @@
+<section class="frame dash">
+  <app-header />
+
+  <div class="titlebar">
+    <a class="back" routerLink="/">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      Back to Zones
+    </a>
+
+    @if (zoneInfo(); as z) {
+      <h2 class="zone-title" [attr.data-accent]="z.accent"><span class="bar"></span>{{ z.name }}</h2>
+    }
+
+    @if (zones().length) {
+      <nav class="zone-switch" aria-label="Select zone">
+        @for (z of zones(); track z.id) {
+          <a [routerLink]="['/zone', z.id]" routerLinkActive="active" [attr.data-accent]="z.accent" [attr.aria-label]="z.name">{{ z.name }}</a>
+        }
+      </nav>
+    }
+  </div>
+
+  @if (missing()) {
+    <p class="notice">This zone doesn't exist. Go back and choose Zone 1, 2 or 3.</p>
+  } @else {
+    @if (view(); as v) {
+      @if (state().error; as err) {
+        <p class="notice warn" role="alert">Could not refresh: {{ err }} Showing the last data received.</p>
+      }
+
+      <div class="sensors">
+        <app-sensor-card type="temperature" label="Temperature" [unit]="v.temperature.unit" digits="1.1-1" [value]="v.temperature.current" [points]="v.temperature.points" [windowStart]="v.windowStart" [windowEnd]="v.windowEnd" [timeZone]="v.timeZone" [detailed]="true" [max]="maxTemperature" maxLabel="MAX TEMP" [yStep]="5" />
+        <app-sensor-card type="humidity" label="Humidity" [unit]="v.humidity.unit" digits="1.0-2" [value]="v.humidity.current" [points]="v.humidity.points" [windowStart]="v.windowStart" [windowEnd]="v.windowEnd" [timeZone]="v.timeZone" [detailed]="true" [max]="maxHumidity" maxLabel="MAX HUMIDITY" [markPeak]="true" [yStep]="10" />
+        <app-sensor-card type="luminosity" label="Luminosity" [unit]="v.luminosity.unit" [value]="v.luminosity.current" [points]="v.luminosity.points" />
+      </div>
+
+      <div class="bottom">
+        <app-sprinkler-control [on]="v.sprinkler.on" [onUntilMs]="v.sprinkler.onUntilMs" [last]="v.sprinkler.last" [timeZone]="v.timeZone" />
+        <app-binary-chart [events]="v.sprinkler.events" [windowStart]="v.windowStart" [windowEnd]="v.windowEnd" [timeZone]="v.timeZone" />
+      </div>
+    } @else if (state().status === 'error') {
+      <div class="notice warn" role="alert">
+        <p>{{ state().error }}</p>
+        <button type="button" class="retry" (click)="retry()">Try again</button>
+      </div>
+    } @else {
+      <p class="notice" role="status">Loading zone data…</p>
+    }
+  }
+</section>

@@ -1,0 +1,33 @@
+<article class="card">
+  <h3>
+    <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+      <circle cx="16" cy="16" r="7"/>
+      <circle cx="16" cy="16" r="2.5" fill="currentColor" stroke="none"/>
+      <path d="M16 3v4M16 25v4M3 16h4M25 16h4M6.8 6.8l2.8 2.8M22.4 22.4l2.8 2.8M25.2 6.8l-2.8 2.8M9.6 22.4l-2.8 2.8"/>
+    </svg>
+    Sprinkler Status
+  </h3>
+
+  <p class="state" [class.on]="on" role="status" aria-live="polite">
+    <i class="dot"></i>{{ on ? 'ON' : 'OFF' }}
+  </p>
+
+  <p class="info">
+    @if (on && onUntilMs !== null) {
+      Running until {{ time(onUntilMs, true) }}
+    } @else if (last) {
+      Last run {{ time(last.startMs, true) }} · {{ last.type }} · {{ seconds(last.runTimeSeconds) }} s
+    } @else {
+      No activation recorded
+    }
+  </p>
+
+  <button type="button" class="power" [class.off-action]="on" [disabled]="!controlAvailable" (click)="onClick()"
+          title="Manual control is not connected to the backend yet">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 3v9M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>
+    {{ on ? 'Turn OFF' : 'Turn ON' }}
+  </button>
+  @if (!controlAvailable) {
+    <p class="note">Manual control is not connected yet</p>
+  }
+</article>

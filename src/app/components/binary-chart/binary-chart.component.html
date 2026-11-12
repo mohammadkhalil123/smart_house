@@ -1,0 +1,14 @@
+<article class="card">
+  <h3>
+    <svg viewBox="0 0 32 24" width="32" height="24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h4M26 12h4M10 4v16M16 8v8M22 2v20"/></svg>
+    Sprinkler State (Binary)
+  </h3>
+  <div class="plot">
+    <canvas #canvas role="img" aria-label="Sprinkler ON/OFF history"></canvas>
+    @if (!events.length) {
+      <p class="empty">No data for this period</p>
+    } @else if (!hasActivation) {
+      <p class="empty hint">No sprinkler activation in this period</p>
+    }
+  </div>
+</article>

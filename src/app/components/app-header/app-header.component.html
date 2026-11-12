@@ -1,0 +1,14 @@
+<header class="header">
+  <a class="brand" routerLink="/" aria-label="Smart Greenhouse home">
+    <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M40 8C20 8 8 19 9 36c17 2 31-8 31-28Z"/>
+      <path d="M9 42C17 29 26 21 36 15M20 31l-1-9M26 26l-1-8M15 36l-7-3"/>
+    </svg>
+    <span class="name">Smart <b>Greenhouse</b></span>
+  </a>
+  <div class="status">
+    <span class="live" [attr.data-kind]="badge().kind" [title]="badge().kind === 'mock' ? 'Demo records served by the backend, not live sensor measurements' : ''"><i class="dot"></i>{{ badge().text }}</span>
+    <span class="sep" aria-hidden="true"></span>
+    <time>{{ now() | date: 'EEE, MMM d, y • h:mm a' }}</time>
+  </div>
+</header>

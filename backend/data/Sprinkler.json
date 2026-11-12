@@ -1,0 +1,20 @@
+[
+  {"_id":"ee8eddeae925f6bedc2a0fef","run_time":"0:00:14.201733","place":1,"date":"09-11-2026","date_hour":"18:00:30","activation_type":"auto"},
+  {"_id":"8cc6579b477deb76b52dd329","run_time":"0:03:45.250000","place":1,"date":"10-11-2026","date_hour":"11:58:30","activation_type":"manual"},
+  {"_id":"95978598329b750fbc41b6f6","run_time":"0:00:14.2 ","place":3,"date":"10-11-2026","date_hour":"12:10:00","activation_type":"auto"},
+  {"_id":"2afdd14c46a4795d12acc1bb","run_time":"0:00:14.015384","place":1,"date":"10-11-2026","date_hour":"12:20:15","activation_type":"auto"},
+  {"_id":"7e8225238e0b2ae74747fbd9","run_time":"0:00:14.000000","place":2,"date":"10-11-2026","date_hour":"12:40:10","activation_type":"auto"},
+  {"_id":"c9354afd028f9d371357f917","run_time":"0:00:13.987201","place":1,"date":"10-11-2026","date_hour":"13:05:42","activation_type":"auto"},
+  {"_id":"1cb99ed4dddd35d26472d681","run_time":"0:01:00","place":2,"date":"10-11-2026","date_hour":"13:15:30","activation_type":"manual"},
+  {"_id":"baf118851d9e2afc8e58d59b","run_time":"0:00:20.500000","place":2,"date":"10-11-2026","date_hour":"13:15:50","activation_type":"auto"},
+  {"_id":"676cc4aefcf5c0b4f78cb0e7","run_time":"0:00:32.500000","place":1,"date":"10-11-2026","date_hour":"13:30:05","activation_type":"manual"},
+  {"_id":"33ceff49069d0101a8f55849","run_time":"0:00:25.123456","place":3,"date":"10-11-2026","date_hour":"13:45:20","activation_type":"manual"},
+  {"_id":"59289236fa2315555ed7767f","run_time":"0:00:14.4 ","place":2,"date":"10-11-2026","date_hour":"14:05:00","activation_type":"auto"},
+  {"_id":"05a43e5f8b833808994e0a30","run_time":"0:00:45","place":1,"date":"10-11-2026","date_hour":"14:10:00","activation_type":"manual"},
+  {"_id":"a3dbb810aab6b01b2490e945","run_time":"0:00:14.015384 ","place":1,"date":"10-11-2026","date_hour":"14:10:20","activation_type":"auto"},
+  {"_id":"421331c1a175c85065681f23","run_time":"0:00:14.102233","place":1,"date":"10-11-2026","date_hour":"14:10:40","activation_type":"auto"},
+  {"_id":"d20678fac170c8f94b0ccbab","run_time":"0:00:14","place":3,"date":"10-11-2026","date_hour":"14:30:00","activation_type":"auto"},
+  {"_id":"703df2ab11ac993497637956","run_time":"0:00:14","place":3,"date":"10-11-2026","date_hour":"14:30:14","activation_type":"auto"},
+  {"_id":"e04aab7256d12cbc9cbb9b77","run_time":"0:00:14.015384","place":1,"date":"10-11-2026","date_hour":"14:45:50","activation_type":"auto"},
+  {"_id":"f7600be701fb93c478a2598f","run_time":"0:00:14.015384","place":2,"date":"10-11-2026","date_hour":"14:55:12","activation_type":"auto"}
+]
